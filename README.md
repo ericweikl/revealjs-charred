@@ -13,7 +13,11 @@ Copy charred-trail.js into your reveal.js installation under
 
 Then add the following to your dependencies in `Reveal.initialize()`:
 ```js
-  { src: 'plugin/charred-trail/charred-trail.js', async: true, condition: function() { return !!document.body.classList; }}
+  {
+    src: 'plugin/charred-trail/charred-trail.js',
+    async: true,
+    condition: function() { return !!document.body.classList; }
+  }
 ```
 
 ## Styling
