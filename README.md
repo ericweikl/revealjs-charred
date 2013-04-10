@@ -2,7 +2,7 @@
 
 A plugin for [reveal.js](https://github.com/hakimel/reveal.js/) that implements
 the "Charred Trail" Pattern from the book
-[Presentation Patterns](http://presentationpatterns.com/)) by Neal Ford,
+[Presentation Patterns](http://presentationpatterns.com/) by Neal Ford,
 Matthew McCullough,
 and Nate Schutta.
 
@@ -29,7 +29,7 @@ you can highlight the current fragment and/or gray out previous fragments.
 To protect fragments from fading out, you can mark them with a separate class,
 e.g.
 
-```
+```css
 .reveal .slides section .fragment.visible.no-burn { opacity: 1; }
 ```
 
