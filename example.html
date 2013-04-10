@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.min.css">
     <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/lib/css/zenburn.css">
 
     <link rel="stylesheet" href="./charred-trail.css">
 
@@ -45,6 +46,22 @@
             <li class="fragment">next element</li>
             <li class="fragment">last element</li>
           </ul>
+        </section>
+
+        <style type="text/css">
+          code .fragment { opacity: 1.0 !important; }
+          code .fragment.visible.focus { background-color: #817E2C; -webkit-border-radius: 2px;  }
+        </style>
+
+        <section>
+          <h2>Code Highlighting</h2>
+          <pre><code class="java">
+    public <span class="fragment" data-fragment-index="1">class HelloWorld</span> {
+      public static <span class="fragment" data-fragment-index="4">void</span> <span class="fragment" data-fragment-index="2">main</span>(<span class="fragment" data-fragment-index="3">String[] args</span>) {
+        <span class="fragment" data-fragment-index="5">System.out.println("Hello World!");</span>
+      }
+    }
+          </code></pre>
         </section>
 
       </div>
