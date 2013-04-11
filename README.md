@@ -6,6 +6,9 @@ the "Charred Trail" Pattern from the book
 Matthew McCullough,
 and Nate Schutta.
 
+[View the demo!](http://ericweikl.github.io/revealjs-charred)
+
+
 ## Installation
 
 Copy charred-trail.js into your reveal.js installation under

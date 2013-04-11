@@ -31,6 +31,7 @@
 
         <section>
           <h2>Charred Trail Example</h2>
+          <p>Press PgDown to display a list of fragments. The current fragment is highlighted.</p>
           <ul>
             <li class="fragment">first element</li>
             <li class="fragment">next element</li>
@@ -40,11 +41,12 @@
 
         <section>
           <h2>No Burn</h2>
+          <p>You can prevent fragments from fading out by applying additional styles.</p>
           <h3 class="fragment no-burn">Will not fade</h3>
           <ul>
-            <li class="fragment">first element</li>
-            <li class="fragment">next element</li>
-            <li class="fragment">last element</li>
+            <li class="fragment">these</li>
+            <li class="fragment">will</li>
+            <li class="fragment">fade</li>
           </ul>
         </section>
 
@@ -55,6 +57,7 @@
 
         <section>
           <h2>Code Highlighting</h2>
+          <p>You can use highlights in source code to point things out.</p>
           <pre><code class="java">
     public <span class="fragment" data-fragment-index="1">class HelloWorld</span> {
       public static <span class="fragment" data-fragment-index="4">void</span> <span class="fragment" data-fragment-index="2">main</span>(<span class="fragment" data-fragment-index="3">String[] args</span>) {
@@ -62,6 +65,14 @@
       }
     }
           </code></pre>
+        </section>
+
+        <section>
+          <h2>More Information</h2>
+          <ul>
+            <li class="fragment no-burn"><a href="https://github.com/ericweikl/revealjs-charred">Github project</a></li>
+            <li class="fragment no-burn"><a href="http://lab.hakim.se/reveal-js/">Reveal.js home page</a></li>
+          </ul>
         </section>
 
       </div>
@@ -82,11 +93,7 @@
 
         dependencies: [
           { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'http://lab.hakim.se/reveal-js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'http://lab.hakim.se/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
           { src: 'http://lab.hakim.se/reveal-js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
           { src: 'charred-trail.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
