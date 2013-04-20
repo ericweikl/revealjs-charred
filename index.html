@@ -13,14 +13,14 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" href="css/reveal.min.css">
-    <link rel="stylesheet" href="css/default.css" id="theme">
-    <link rel="stylesheet" href="css/zenburn.css">
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
 
     <link rel="stylesheet" href="css/charred-trail.css">
 
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
+    <script src="reveal.js/js/html5shiv.js"></script>
     <![endif]-->
   </head>
 
@@ -78,8 +78,8 @@
       </div>
     </div>
 
-    <script src="js/head.min.js"></script>
-    <script src="js/reveal.js"></script>
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
 
     <script>
       Reveal.initialize({
@@ -92,8 +92,8 @@
         transition: Reveal.getQueryHash().transition || 'fade',
 
         dependencies: [
-          { src: 'js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'js/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'reveal.js/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: 'js/charred-trail.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
