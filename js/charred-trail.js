@@ -5,55 +5,36 @@
  *
  * See README.md for more information.
  *
- * Contains significant copy&paste from reveal.js, since there is no way find
- * relationships between fragments :-(
- *
  * MIT Licensed
  * See LICENSE for more information.
  */
 (function () {
-  var HORIZONTAL_SLIDES_SELECTOR = '.reveal .slides>section',
-      VERTICAL_SLIDES_SELECTOR = '.reveal .slides>section.present>section';
-
-  function sortFragments(fragments) {
-    var a = Array.prototype.slice.call(fragments);
-
-    a.forEach(function(el, idx) {
-      if (!el.hasAttribute('data-fragment-index')) {
-        el.setAttribute('data-fragment-index', idx);
-      }
-    });
-    a.sort(function(l, r) {
-      return l.getAttribute('data-fragment-index') - r.getAttribute('data-fragment-index');
-    });
-    return a;
+  function toArray(list) {
+    if (!list) return [];
+    return Array.prototype.slice.call(list);
   }
 
-  function getPreviousFragment(qualifier) {
-    var selector = VERTICAL_SLIDES_SELECTOR;
-    if (document.querySelector(HORIZONTAL_SLIDES_SELECTOR + '.present')) {
-      selector = HORIZONTAL_SLIDES_SELECTOR;
-    }
-    var fragments = sortFragments(document.querySelectorAll(selector + '.present .fragment' + qualifier));
-    if (fragments.length) {
-      return fragments[fragments.length - 1];
+  function getIndex(fragment) {
+    return parseInt(fragment.getAttribute('data-fragment-index'));
+  }
+
+  function makeEventHandler(classActionCurrentFragment, compareIndexFunction, classActionIfMatch) {
+    return function(e) {
+      var currentIndex = getIndex(e.fragment);
+      var fragments = Reveal.getCurrentSlide().querySelectorAll('.fragment');
+      toArray(fragments).forEach(function(fragment) {
+        if (compareIndexFunction(getIndex(fragment), currentIndex)) {
+          fragment.classList[classActionIfMatch]('focus');
+        }
+      });
+      e.fragment.classList[classActionCurrentFragment]('focus');
     }
   }
 
-  Reveal.addEventListener('fragmentshown', function(event) {
-    var previous = getPreviousFragment('.focus');
-    if (previous) {
-      previous.classList.remove('focus');
-    }
-    event.fragment.classList.add('focus');
-  });
+  var NOT_CURRENT = function(f, i) { return f !== i };
+  var IS_PREVIOUS = function(f, i) { return f === i - 1 };
 
-  Reveal.addEventListener('fragmenthidden', function(event) {
-    var previous = getPreviousFragment('.visible:not(.focus)');
-    if (previous) {
-      previous.classList.add('focus');
-    }
-    event.fragment.classList.remove('focus');
-  });
+  Reveal.addEventListener('fragmentshown',  makeEventHandler('add',    NOT_CURRENT, 'remove'));
+  Reveal.addEventListener('fragmenthidden', makeEventHandler('remove', IS_PREVIOUS, 'add'));
 }());
 
